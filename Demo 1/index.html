@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      ApexPay - Financial Platforms Infastructure For Software Engineers
+    </title>
+    <!-- Connect your CSS file here: -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Connect yor JavaScript here-->
+  </head>
+  <!-- To create unique lables, we will use HTML attributes called id -->
+  <!-- To create group-based labels, we use HTML attribute called class -->
+  <body>
+    <header class="site-header">
+      <!-- a = anchor tag -->
+      <a href="#" class="brand-logo" aria-label="ApexPay Logo">
+        <span class="logo-icon">&#x25B2;</span> ApexPay
+      </a>
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <!-- #features, #pricing, etc are internal references -->
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#register" class="nav-link">Calculator</a>
+        <!-- CTA -->
+        <a href="#register" class="btn btn-sm btn-primary">Get API Key</a>
+      </nav>
+    </header>
+    <main>
+      <!-- HERO section -->
+      <!-- The id is a unique identifier you can assign to an element, you can name -->
+      <!-- it whateer you want. -->
+      <!-- The class is a group assignemnt, you can put whateve group name you want -->
+      <!-- it is used for CSS. -->
+      <section id="hero" , class="hero-section">
+        <!-- a div is a container without any meaning -->
+        <div class="badge-pill">New: sub-second global payouts</div>
+        <h1 class="hero-title">
+          Financial Infastructure Built For High-Volume Scale
+        </h1>
+        <p class="hero-subtitle">
+          Integrate payments automated occurring billing and explode 2 billion
+          houses across the globe yay woohoo.
+        </p>
+        <div class="cta-group-for-the-two-buttons">
+          <!-- To make a button, you can use an anchor tag ("a") and then -->
+          <!-- make it look like a button with CSS. (There IS a buttn tag, -->
+          <!-- but you'llhave ti put an <a> tag inside it anyway so it's -->
+          <!-- just more code.) -->
+          <!-- #(label name) points to a section on the same webpage -->
+          <a href="#register" class="button button-primary"
+            >Start Sandbox Trial</a
+          >
+          <a href="#pricing" class="button button-secondary"
+            >View Pricing Matrix</a
+          >
+        </div>
+      </section>
+
+      <!-- Features section -->
+      <section id="features" class="section-container">
+        <header class="section-header">
+          <h2 class="section-title">Engineered For Reliability</h2>
+          <p class="section-subtitle">
+            Reliably blows up your house into precicely 2 * 10^40 pieces.
+          </p>
+        </header>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">&#9889;</div>
+            <h3 class="feature-title">Service-Level Agreement</h3>
+            <p class="feature-description">
+              You agree to let us blow up your house at any moment with no
+              compensation or benefits whatsoever.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">&#128274;</div>
+            <h3 class="feature-title">99.999% success rate</h3>
+            <p class="feature-description">
+              We get the job done, no matter the cost.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">&#128512;</div>
+            <h3 class="feature-title">No complaints</h3>
+            <p class="feature-description">
+              We have not received any customer complaints in over 20 years.
+            </p>
+          </article>
+        </div>
+      </section>
+      <!-- Price matrix section -->
+      <section id="pricing" class="section-container">
+        <header class="section-header">
+          <h3 class="section-title">Predictable, transparent pricing</h3>
+          <p class="section-subtitle">
+            Ask our cutting-edge AI for more details.
+          </p>
+        </header>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <h3 class="tier-name">Starter</h3>
+            <p class="tier-description">For early stage startups.</p>
+            <div class="tier-price">
+              <span class="price-value">2.9%</span>
+              <span class="price-unit">+ 30 cents</span>
+              <!-- The div separates the content from the free-flowing <h3> and <p> -->
+              <!-- Spans stay on the same line, they do not go to new line. -->
+            </div>
+            <ul class="tier-features">
+              <li class="pricing-card-list">Standard payouts</li>
+              <li class="pricing-card-list">Basic Fraud Screening</li>
+              <li class="pricing-card-list">Email Support</li>
+            </ul>
+            <a href="#register" class="button button-outline button-block">
+              Deploy Starter
+            </a>
+          </article>
+          <article class="pricing-card featured">
+            <div class="popular-tag">Most Popular</div>
+            <h3 class="tier-name">Growth</h3>
+            <p class="tier-description">For early stage startups.</p>
+            <div class="tier-price">
+              <span class="price-value">2.9%</span>
+              <span class="price-unit">+ 30 cents</span>
+              <!-- The div separates the content from the free-flowing <h3> and <p> -->
+              <!-- Spans stay on the same line, they do not go to new line. -->
+            </div>
+            <ul class="tier-features">
+              <li class="pricing-card-list">Standard payouts</li>
+              <li class="pricing-card-list">Basic Fraud Screening</li>
+              <li class="pricing-card-list">Email Support</li>
+            </ul>
+            <a href="#register" class="button button-primary button-block">
+              Scale With Growth
+            </a>
+          </article>
+          <article class="pricing-card">
+            <h3 class="tier-name">Enterprise</h3>
+            <p class="tier-description">For early stage startups.</p>
+            <div class="tier-price">
+              <span class="price-value">2.9%</span>
+              <span class="price-unit">+ 30 cents</span>
+              <!-- The div separates the content from the free-flowing <h3> and <p> -->
+              <!-- Spans stay on the same line, they do not go to new line. -->
+            </div>
+            <ul class="tier-features">
+              <li class="pricing-card-list">Standard payouts</li>
+              <li class="pricing-card-list">Basic Fraud Screening</li>
+              <li class="pricing-card-list">Email Support</li>
+            </ul>
+            <a href="#register" class="button button-outline button-block">
+              Contact Sales
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Calculator section / Get API Keys section -->
+      <section id="register" class="section-container">
+        <div class="form-wrapper">
+          <header class="section-header">
+            <h3 class="section-title">Claim API Sandbox Keys</h3>
+            <p class="section-subtitle">
+              Instant provisioning. No credit card provided.
+            </p>
+          </header>
+          <form action="#" method="post" class="lead-form">
+            <!-- method=get is when user is trying to read -->
+            <!-- method=post is when user it trying to write something to the website -->
+            <!-- action: the URL of the server that will receive this input -->
+            <div class="form-group">
+              <label for="work-email" class="form-label">
+                <!-- for attribute: links this label to the id attribute of the input tag -->
+                Work Email
+                <span class="required-mark">*</span>
+              </label>
+              <input type="email" name="work-email" id="work-email" class="form-control" placeholder="abc@xyz.com" required></input>
+              <!-- ^ The id is for the HTML code -->
+              <!-- ^ The name is the label the server will see -->
+              <!-- ^ Both attributes typically have the same name -->
+              <!-- ^ required is a boolean. If it's present, it's true; -->
+              <!--   if not present, it's else -->
+            </div>
+            <div class="form-group">
+              <label for="monthly-volume" class="form-label">
+                Estimated Monthly Volume ($ USD)
+                <span class="required-mark">*</span>
+              </label>
+              <input type="number" name="monthly-volume" id="monthly-volume" class="form-control" min="1000" max="5000000" step="1000" placeholder="50000" required></input>
+              <!-- ^ step: makes up and down arrows appear, and specifies the increment/decrement amount each time arrow is presserd -->
+              <span class="input-hint">Minimum: $1,000. Maximum: $5,000,000</span>
+              <!-- ^ <p> puts it on a new line, <span> ensures it stays on the same line. -->
+            </div>
+            <div class="form-group">
+              <label for="business-tier" class="form-label">
+                Target Tier Selection
+                <span class="required-mark">*</span>
+              </label>
+              <select name="business-tier" id="business-tier" class="form-control">
+                <!-- ^ name and id: same idea as <input> -->
+                <option value="starter">Starter ($0 Monthly Fee)</option>
+                <!-- ^ value is what the server will receive if the user selects the first option -->
+                <option value="growth">Growth ($99 Monthly Fee)</option>
+                <option value="enterprise">Enterprise (Custom)</option>
+              </select>
+              <div>
+                <!-- Submit button -->
+                <!-- This one cannot be an anchor (<a>) tag. -->
+                <!-- It doesn't just take you somewhere else on -->
+                <!-- the page; instead, it sends the responses. -->
+                 <button type="submit" class="button-primary button-block button-large">
+                  Generate Sandbox Credentials
+                 </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p class="footer-copyright">&copy; 2026 ApexPay Technologies Incorporations (Demo for CSI 3150F26)</p>
+        <nav class="footer-link" aria-label="Footer Navigation Links">
+          <a href="#hero">Back to Top</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

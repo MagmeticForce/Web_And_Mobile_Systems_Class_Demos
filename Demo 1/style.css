@@ -1,0 +1,97 @@
+/* 
+
+About CSS
+* For any HTML component, you see text.
+* There are 4 properties for every text/component
+  * width/height
+  * border
+  * padding
+  * margin
+* Border: where a CSS or HTML element ends. Can be bigger
+  than text itself.
+* Text also has width and height.
+* padding: the gap between the border and the text. 
+* margin: the gap between one HTML element's border and 
+  another HTML element's border
+* Total width of HTML element: margin + border width + padding + text width.
+  Same idea for height.
+
+*/
+
+/*
+
+Every browser has default CSS.
+So every default HTML you open will
+look different in different browsers.
+
+This must be rmoved or reset such that
+all briowsers show your UI the same way.
+
+Cascading Style Sheets
+* Cascading: domino effect
+* domino effect is present in the way
+  in which the style sheet is applied.
+* Order (most to least important):
+  * External style sheets. Whenever you
+    use the <link> tag in the <head>
+    of the HTML document.
+  * Internal style sheets. We use <style>
+    HTML tags in the head section of the
+    HTML document. Never use unless
+    you're doing small testing.
+  * Inline style sheets never use them 
+    unless you're doing small testing.
+    These are implemented using HTML
+    attributes called "style", e.g.
+    <h1 style="color:red">Some Text
+    </h1>
+  * Browser default
+* So how it works is, if there is
+  no external, it looks for internal.
+  If no internal, look for inline.
+  If no inline, look for browser defaut.
+
+*/
+
+/* Reset the browser styling. */
+/* * means "every elemet present on the HTML document It's a wildcard. */
+/* sudo elements: they are not permantnt in the doc. They are temporary.
+   E.g. buttoon lighting up wen user hovers over the mouse. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* ^ THIS IS WHAT MAKES YOU UI UNIVERSAL ACROSS ANY BROWSER */
+/* ^This is alwsays included in any CSS document. */
+
+/* CSS variables to store certain design things. */
+/* It's best practice to have 5 colors (mainly 4) */
+/* Primary color, secondary color, text primary color, 
+   text secondary color, and backup color*/
+/* Good color-generator resource if you want: https://coolors.co/?home */
+
+/* THis points to the HTML tag. This will point to nay root to any document you use */
+:root {
+  --background-dark-color: #090d96;
+  --background-card: #111827;
+  --primary-color: #6366f1;
+  --hover-color: #4f46e5;
+  --text-color-main: #f9fafb;
+  --muted-text-color: #9ca3af;
+  --border-color: #374151;
+  --accent-color: #10b981;
+  --font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: #ffe4c4;
+}
+
+h1 p p {
+  font-size: 40px;
+  color: #a52a2a;
+}
