@@ -24,12 +24,12 @@ Every browser has default CSS.
 So every default HTML you open will
 look different in different browsers.
 
-This must be rmoved or reset such that
-all briowsers show your UI the same way.
+This must be removed or reset so that
+all browsers show your UI the same way.
 
 Cascading Style Sheets
 * Cascading: domino effect
-* domino effect is present in the way
+* Domino effect is present in the way
   in which the style sheet is applied.
 * Order (most to least important):
   * External style sheets. Whenever you
@@ -53,27 +53,14 @@ Cascading Style Sheets
 
 */
 
-/* Reset the browser styling. */
-/* * means "every elemet present on the HTML document It's a wildcard. */
-/* sudo elements: they are not permantnt in the doc. They are temporary.
-   E.g. buttoon lighting up wen user hovers over the mouse. */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-/* ^ THIS IS WHAT MAKES YOU UI UNIVERSAL ACROSS ANY BROWSER */
-/* ^This is alwsays included in any CSS document. */
-
 /* CSS variables to store certain design things. */
 /* It's best practice to have 5 colors (mainly 4) */
 /* Primary color, secondary color, text primary color, 
-   text secondary color, and backup color*/
+   text secondary color, and backup color */
 /* Good color-generator resource if you want: https://coolors.co/?home */
 
-/* THis points to the HTML tag. This will point to nay root to any document you use */
+/* This points to the HTML tag. This will point to any root to any document you use */
+/* -- indicates variable declaration. */
 :root {
   --background-dark-color: #090d96;
   --background-card: #111827;
@@ -85,13 +72,201 @@ Cascading Style Sheets
   --accent-color: #10b981;
   --font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --transition-speed: 0.2;
 }
 
-body {
-  background-color: #ffe4c4;
+/* Reset the browser styling. */
+/* * means "every elemet present on the HTML document It's a wildcard. */
+/* sudo elements: they are not permantnt in the doc. They are temporary.
+   E.g. buttoon lighting up when user hovers over the mouse. */
+/* border-box indicates we are using the CSS border box style. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* ^ THIS IS WHAT MAKES YOU UI UNIVERSAL ACROSS ANY BROWSER */
+/* ^ This is always included in any CSS document. */
+
+/* Declare the usage of font family and background color. */
+/* We now start applying the things we set up above! */
+/* We'll use "html", but you can also put "body" */
+/* "var(--my-variable)" gets the value of your variable. */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  background-color: var(--background-dark-color);
+  /* Text font color is called "color" not "font-color": */
+  color: var(--text-color-main);
+  line-height: 1.6;
 }
 
-h1 p p {
-  font-size: 40px;
-  color: #a52a2a;
+/* Styling of the buttons and their classes we have in the .html */
+/* To refer to a class name, you have to say .class-name */
+/* To refer to an id, use #id-name */
+.button {
+  /* Most important property is called "display" */
+  /* Display could be block display or an inline display by default. */
+  /* Block display: takes full width of the page and puts a new line. */
+  /* Inline display: takes the width of the conotent and does NOT add new line. */
+  /* However, when CSS comes into the picture, we have more flexibility. */
+  /* inline-block: hybrid between block and inline, so it behaves like a block,  */
+  /* but you can control the width and height. */
+  /* none: removes particular eleent form object model. */
+  /* grid: a tabular layou (so it's like a table) */
+  /* flex: child components will be arranged in a certian way within the spce available. */
+  /* flex-direction: row, row-reverse (puts first child rightmost instead of leftmost, */
+  /* column, column-reverse (goes from bottom-to-top). Defaults to "row" for computer, */
+  /* "column" for mobile systems. */
+  /* justify-content: defines how the child elements are spaced in a flex container. */
+  /* centered, stretched, space-between (pushes child containers away from each other. */
+  /* align-items: aligns items on the cross axis (for example, if things are aligned on */
+  /* the y-axis, the cross-axis is the x-axis). Has options like centerd */
+  /* extra things are as follows. But the above three things are most important. */
+  /* gap: fixed separation between flex elements. */
+  /* flex vs margin: margin is wher you define a prescibed space between elements. */
+  /* flex automatically applies spacing between elements. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* ^ align-items center and justify-content centers the blocks whatever it is position */
+
+  /* About padding: */
+  /* It is the space betwen text and border. (SPace between elements is "margin") */
+  /* padding: 0.75 0.65 0.85 0.90 */
+  /* Values go in this order: top right bottom left */
+  /* However, what if we want top-and-bottom and right-and-left to be the same? */
+  /* padding: 0.75rem 1.5rem  */
+  /* This makes top-and-bottom 0.75 and right-and-left 1.5. Great for reducing copy */
+  /* + pasted code! */
+  /* padding: 0.5rem makes the padding 0.5 for top right bottom left. */
+  /* padding 1 2 3 */
+  /* top right bottom-and-left I think? */
+  /* Now, what is "rem"? 0.75rem is 0.75 * size_of_the_root_node (root size is usually 12px). */
+  /* Can also use %, which is based on the width and height of the browser window. */
+  /* If you want your elements to chang width and height based on size of browser */
+  /* window, usw this. viewport-height only does is bsassed on height. viewport-width */
+  /* does the same but for width. */
+  /* px is a fixed unit that does not change. */
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  /* font-weight is boldness 1 - 999_or_1000 */
+  font-weight: 600;
+  /* Text decoration: anchor tags, by default, are blue and underlined. To remove this */
+  /* default beavior, we use text-decoration and set it to none. */
+  text-decoration: none;
+  /* border-readius: curves the edge corners of the borders. higher = more curve. */
+  /* border-radius: 50% turns a box into a circle. Useful for profile pictures, and */
+  /* turns a rectangle into an ellipse. */
+  /* Folowsc the same idea as padding. border-radius: 6px 2px rounds top-and-bottom */
+  /* and right-and-left differently, for example. */
+  border-radius: 6px;
+  /* bordder: first value is thickness of the border. Second option sets dotted, */
+  /* dash, etc. Third property is color. */
+  /* If you set the color to "transparent," the border will be invisible. */
+  border: 1px solid transparent;
+  /* cursor: controls how the cursor will look when you drag it on the buttn */
+  cursor: pointer;
+  /* transition defines the speed at which is transitions to a sudo class. */
+  /* The vlaues define the transtioni of sach individual animated value. */
+  /* The format is thing-you-want-to-change value, other-thing-you-want-to-change, value...*/
+  transition:
+    background-color var(--transition-speed),
+    transform var(--transition-speed),
+    border-color var(--transition-speed);
+}
+
+/* sudo class: class that is only made when an action takes place. Dynamically created. */
+/* Here, we say "this is button when the focus is visible." */
+.button:focus-visible {
+  /* outline specifies the outline that apppears when the element is */
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+.button-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.button-primary:hover {
+  background-color: var(--hover-color);
+  transform: translateY(-2px);
+  /* ^ translateZ() makes it look like Star Wars opening. */
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--text-color-main);
+  border-color: var(--border-color);
+}
+
+.button-secondary:hover {
+  background-color: var(--background-card);
+  border-color: var(--muted-text-color);
+}
+
+.button-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--border-color);
+}
+
+.button-outline:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.button-block {
+  display: flex;
+  width: 100%;
+  /* ^ width: give the whole width to it */
+}
+
+.button-small {
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+}
+
+/* Structural layout of the web page. */
+.site-header {
+  position: sticky;
+  /* ^ sticky: regardless of where you scroll, the header will always be there. It sticks there. */
+  top: 0;
+  /* ^ Tells it where it starts to stick from. */
+  z-index: 1000;
+  /* ^ Makes it pop-out on the z-axis. Layers it on top of the other elements. */
+  display: flex;
+  justify-content: space-between;
+  /* ^ Pushes the child elements away from each other as much as possible */
+  align-items: center;
+  padding: 1rem 2rem;
+  /* ^ 1 on y-axis/top-bottom, 2 on x-axis/right-left. */
+  background-color: rgba(9, 13, 25, 0.9);
+  /* ^ rgb goes from 0-255. Alpha goes from 0-1. */
+  border-bottom: 1px solid var(--border-color);
+  /* ^ Applies a visual border to the bottom of our header container. */
+}
+
+.brand-logo {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  /* There is no justify-content, */
+  gap: 0.5rem;
+  /* ^ You define space bewteen the containers */
+  /* ^ More modern in that it pairs with the flex property to group the CSS elements */
+}
+
+.logo-icon {
+  coor: var(--primary);
+}
+
+.nav-menu {
+  display: flex;
 }
