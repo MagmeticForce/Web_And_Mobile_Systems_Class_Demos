@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Dashboard</title>
+    <!-- Link the styles.css file here -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link the JS file here -->
+    <script src="app.js" defer></script>
+    <!-- ^ defer makes it render the web page contents first so that the rendering -->
+    <!-- ^ doesn't slow down -->
+    <!--^ can also put this at the bottom of <body> without "defer" -->
+  </head>
+  <body>
+    <header class="portal-header">
+      <div class="header-content">
+        <div class="brand">
+          <span class="brand-icon">🩺</span>
+          <h1>PulseCare <span class="brand-subtitle">Triage Intake</span></h1>
+        </div>
+        <div class="header-status">
+          Active Queue: <span id="queue-count" class="badge-count">0</span>
+          <!-- ^ The span is a dynamic JavaScript element -->
+          <!-- ^ The text inside it is the default content for when the webpage -->
+          <!--   first loads -->
+        </div>
+      </div>
+      <!-- Shortcut: select all content, and if there is an HTML element above the -->
+      <!-- selected content, Alt + Up moves it inside the element abpve the select -->
+    </header>
+    <main class="portal-container">
+      <!-- Left container for the input fom fields -->
+      <aside class="panel form-panel">
+        <h2 class="panel-title">Record Patient Vitals</h2>
+        <!-- Hidden warning element which fires if user gives out-of-bounds input: -->
+        <div
+          id="form-error-banner"
+          class="alert alert-danger hidden"
+          rule="alert"
+        ></div>
+
+        <!-- Form input -->
+        <form id="vitals-form" action="#" novalidate>
+          <!-- ^ novalidate: we will perform the validation form JS, not HTML -->
+          <div class="form-group">
+            <label for="patient-name" class="form-label">
+              Full Name <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              name="patient-name"
+              id="patient-name"
+              class="form-control"
+              placeholder="e.g. Elanor Vance"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="systolic" class="form-label">
+                Systolic Blood Pressure (mmHg)
+                <span class="required">*</span>
+              </label>
+              <input
+                type="number"
+                name="systolic"
+                id="systolic"
+                class="form-control"
+                min="60"
+                max="260"
+                placeholder="120"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="diasystolic" class="form-label">
+                Diasystolic Blood Pressure (mmHg)
+                <span class="required">*</span>
+              </label>
+              <input
+                type="text"
+                name="diasystolic"
+                id="diasystolic"
+                class="form-control"
+                min="40"
+                max="150"
+                placeholder="80"
+                required
+              />
+            </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="heart-rate" class="form-label">
+                Pulse (BPM)
+                <span class="required">*</span>
+              </label>
+              <input
+                type="number"
+                name="heart-rate"
+                id="heart-rate"
+                class="form-control"
+                min="30"
+                max="240"
+                placeholder="72"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="spo2" class="form-label">
+                SpO2 (%)
+                <span class="required">*</span>
+              </label>
+              <input
+                type="text"
+                name="spo2"
+                id="spo2"
+                class="form-control"
+                min="50"
+                max="100"
+                placeholder="98"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="temperature" class="form-label">
+              Temperature (°F) <span class="required">*</span>
+            </label>
+            <input
+              type="number"
+              name="temperature"
+              id="temperature"
+              class="form-control"
+              min="90"
+              max="110"
+              placeholder="98.6"
+              step="0.1"
+              required
+            />
+          </div>
+          <button type="submit" id="button-submit" class="button button-primary button-block">
+            Log Vitals Record
+          </button>
+          <button type="reset" class="button button-primary button-block">
+            Reset Form
+          </button>
+        </form>
+      </aside>
+      <!-- ^ <aside> is used for suppplementary content. It is not the main -->
+      <!-- ^ section or <article> works too -->
+
+      <!-- Right container for output: DYNAMIC CONTENT injection -->
+      <section class="panel records-panel">
+        <header class="records-header">
+            <h2 class="panel-title">Triage Queue</h2>
+            <button id="button-clear-all" class="button button-outline-danger button-small">Purge Queue</button>
+        </div>
+
+        <!-- Create two states: (1) intial state; (2) state after user interacts with UI -->
+         <div id="empty-state" class="empty-state">
+            <span class="empty-icon">📋</span>
+            <p>No active triage records logged.</p>
+         </div>
+
+         <!-- Create an empty element whose children will be dynamically created by JS: -->
+         <ul id="records-list" class="records-grid" aria-live="polite"></ul>
+         <!-- ^ aria-live="polite": If new item is created dynamically, screenreader will finish what is being read and then move onto the added item -->
+      </section>
+    </main>
+    <footer class="portal-footer">
+        <p>&copy; 2026 CSI-3150 Dashboard Tutorial Fall 2026 whatever blah blah blah...</p>
+    </footer>
+  </body>
+</html>
